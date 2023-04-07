@@ -1,0 +1,12 @@
+apiVersion: test.kubebuilder-operator-test/v1
+kind: MaPageWeb
+metadata:
+  labels:
+    app.kubernetes.io/name: mapageweb
+    app.kubernetes.io/instance: mapageweb-sample
+    app.kubernetes.io/part-of: projet
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: projet
+  name: mapageweb-sample
+spec:
+  # TODO(user): Add fields here

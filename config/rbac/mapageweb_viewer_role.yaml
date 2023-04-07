@@ -1,0 +1,27 @@
+# permissions for end users to view mapagewebs.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: mapageweb-viewer-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: projet
+    app.kubernetes.io/part-of: projet
+    app.kubernetes.io/managed-by: kustomize
+  name: mapageweb-viewer-role
+rules:
+- apiGroups:
+  - test.kubebuilder-operator-test
+  resources:
+  - mapagewebs
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - test.kubebuilder-operator-test
+  resources:
+  - mapagewebs/status
+  verbs:
+  - get

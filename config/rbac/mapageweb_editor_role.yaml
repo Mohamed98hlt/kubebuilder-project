@@ -1,0 +1,31 @@
+# permissions for end users to edit mapagewebs.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: mapageweb-editor-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: projet
+    app.kubernetes.io/part-of: projet
+    app.kubernetes.io/managed-by: kustomize
+  name: mapageweb-editor-role
+rules:
+- apiGroups:
+  - test.kubebuilder-operator-test
+  resources:
+  - mapagewebs
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - test.kubebuilder-operator-test
+  resources:
+  - mapagewebs/status
+  verbs:
+  - get
