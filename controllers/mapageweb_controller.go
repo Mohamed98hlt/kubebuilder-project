@@ -72,7 +72,7 @@ func (r *MaPageWebReconciler) Reconcile(ctx context.Context, req ctrl.Request, M
 	configMap := &corev1.ConfigMap{
 		ObjectMeta: metav1.ObjectMeta{
 			Name: MaPageWeb.Name + "-config",
-		},
+		} ,
 		Data: data,
 	}
 
