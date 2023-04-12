@@ -72,9 +72,9 @@ func (r *MaPageWebReconciler) Reconcile(ctx context.Context, req ctrl.Request, M
 	configMap := &corev1.ConfigMap{
 		ObjectMeta: metav1.ObjectMeta{
 			Name: MaPageWeb.Name + "-config",
-		} ,
-		Data: data,
-	}
+		},
+		Data: data ,
+	 }
 
 	// Set MyResource instance as the owner and controller of the ConfigMap
 	if err := ctrl.SetControllerReference(configMap, r.Scheme); err != nil {
@@ -100,8 +100,8 @@ func (r *MaPageWebReconciler) Reconcile(ctx context.Context, req ctrl.Request, M
 
 	case "Normal":
 		Repliques = 2
-
-	}
+	 
+	},
 
 	Deployment := &appsv1.Deployment{
 		ObjectMeta: metav1.ObjectMeta{
