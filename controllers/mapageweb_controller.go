@@ -144,14 +144,14 @@ func (r *MaPageWebReconciler) Deploy(ctx context.Context, MaPageWeb *v1.MaPageWe
 					 Image: MaPageWeb.Spec.Application ,
 
 					 Ports: v1.ContainerPort{
-						ContainerPort : 80
+						ContainerPort : 80,
 					 } ,
 					 VolumeMounts: v1.VolumeMount{
 
-						Name: MaPageWeb.Name + "-storage"
-						MountPath: "/usr/share/"+ MaPageWeb.Application+"/html"
+						Name: MaPageWeb.Name + "-storage",
+						MountPath: "/usr/share/"+ MaPageWeb.Application+"/html",
 					 } ,
-					}
+					},
 				   volumes: v1.Volume{
 
 					Name: MaPageWeb.Name+"-storage",
@@ -179,15 +179,11 @@ func (r *MaPageWebReconciler) Deploy(ctx context.Context, MaPageWeb *v1.MaPageWe
     }
 
 
-// Set Nginx instance as the owner and controller
-if err := controllerutil.SetControllerReference(nginx, dep, r.Scheme); err != nil {
-	return reconcile.Result{}, err
-}
 
 
 
-    return nil
-}
+ 
+
 
 
 
