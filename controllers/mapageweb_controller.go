@@ -63,18 +63,12 @@ func (r *MaPageWebReconciler) Reconcile(ctx context.Context, req ctrl.Request, M
 }
 
 // SetupWithManager sets up the controller with the Manager.
-func (r *MaPageWebReconciler) SetupWithManager(mgr ctrl.Manager) error {
-	return ctrl.NewControllerManagedBy(mgr).
-		For(&testv1.MaPageWeb{}).
-		Complete(r)
-}
+
 
 //https://pkg.go.dev/k8s.io/apimachinery/pkg/apis/meta/v1#ObjectMeta
 //https://pkg.go.dev/k8s.io/api/core/v1#ConfigMap
 
-
-
-	//Data to Store in the ConfigMap (a web content)
+//Data to Store in the ConfigMap (a web content)
   data := map[string]string{
 	"index.html": "<html><body><h1> "+ MaPageWeb.Spec.Contenu + " </h1></body></html>",
   } 
@@ -176,6 +170,12 @@ func (r *MaPageWebReconciler) SetupWithManager(mgr ctrl.Manager) error {
 				},
             },
         }
+
+		func (r *MaPageWebReconciler) SetupWithManager(mgr ctrl.Manager) error {
+			return ctrl.NewControllerManagedBy(mgr).
+				For(&testv1.MaPageWeb{}).
+				Complete(r)
+		}
     
 
 
