@@ -28,8 +28,8 @@ import (
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/log"
-	v1 "kubebuilder-project/api/v1"	
-	testv1 "kubebuilder-operator-test/projet/api/v1"
+	//v1 "kubebuilder-project/api/v1"	
+	v1 "kubebuilder-operator-test/projet/api/v1"
 )
 
 // MaPageWebReconciler reconciles a MaPageWeb object
