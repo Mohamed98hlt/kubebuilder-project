@@ -83,7 +83,7 @@ func (r *MaPageWebReconciler) Deploy(ctx context.Context, MaPageWeb *v1.MaPageWe
      Name: MaPageWeb.Name + "-config",
 	 },
 
-  Data: data
+  Data: data,
 	}
 	// Set MyResource instance as the owner and controller of the ConfigMap
   if err := ctrl.SetControllerReference(configMap, r.Scheme); err != nil {
@@ -97,7 +97,7 @@ func (r *MaPageWebReconciler) Deploy(ctx context.Context, MaPageWeb *v1.MaPageWe
         return err
     }
 	Preference =MaPageWeb.Spec.Pref
-	Repliques int32
+	Repliques int32;
 
     switch Preference{
 			
