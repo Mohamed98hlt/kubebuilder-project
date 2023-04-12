@@ -88,7 +88,7 @@ func (r *MaPageWebReconciler) Deploy(ctx context.Context, MaPageWeb *v1.MaPageWe
 	// Set MyResource instance as the owner and controller of the ConfigMap
   if err := ctrl.SetControllerReference(configMap, r.Scheme); err != nil {
         return err
-
+  }
     // Create or update the ConfigMap
     err := r.Create(ctx, configMap)
     if err != nil && !errors.IsAlreadyExists(err) {
@@ -174,28 +174,22 @@ func (r *MaPageWebReconciler) Deploy(ctx context.Context, MaPageWeb *v1.MaPageWe
     }
 
 
-
-
-  }
-
-    return nil
-}
-
 // Set Nginx instance as the owner and controller
 if err := controllerutil.SetControllerReference(nginx, dep, r.Scheme); err != nil {
 	return reconcile.Result{}, err
 }
 
-// Check if the deployment already exists
-foundDep := &appsv1.Deployment{}
-err = r.Get(ctx, types.NamespacedName{Name: nginx.Name, Namespace: nginx.Namespace}, foundDep)
-if err !=
 
 
-
-
+    return nil
 }
-}
+
+
+
+
+
+
+
 
 
 
