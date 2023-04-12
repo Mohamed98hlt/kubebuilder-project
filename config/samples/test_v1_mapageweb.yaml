@@ -9,4 +9,7 @@ metadata:
     app.kubernetes.io/created-by: projet
   name: mapageweb-sample
 spec:
+ content : "EWWWWWWWWWW"
+ Pref: "Normal"
+ 
   # TODO(user): Add fields here

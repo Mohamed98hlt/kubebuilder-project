@@ -58,7 +58,7 @@ func (r *MaPageWebReconciler) Reconcile(ctx context.Context, req ctrl.Request) (
 	_ = log.FromContext(ctx)
 	
 	// TODO(user): your logic here 
-
+   r.deploy()
 	return ctrl.Result{}, nil
 }
 
@@ -74,9 +74,9 @@ func (r *MaPageWebReconciler) SetupWithManager(mgr ctrl.Manager) error {
 
 func (r *MaPageWebReconciler) Deploy(ctx context.Context, MaPageWeb *v1.MaPageWeb) error {
 
-  data:= m data := map[string]string{
+  data =: map[string]string{
 	"index.html": "<html><body><h1> "+ MaPageWeb.Spec.Contenu + " </h1></body></html>",
-  }
+  } 
 
   configMap :=&corev1.ConfigMap {
      ObjectMeta: metav1.ObjectMeta{
@@ -84,6 +84,7 @@ func (r *MaPageWebReconciler) Deploy(ctx context.Context, MaPageWeb *v1.MaPageWe
 	 },
 
   Data: data
+	}
 	// Set MyResource instance as the owner and controller of the ConfigMap
   if err := ctrl.SetControllerReference(configMap, r.Scheme); err != nil {
         return err
