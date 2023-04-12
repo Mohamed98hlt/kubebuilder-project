@@ -10,6 +10,6 @@ metadata:
   name: mapageweb-sample
 spec:
  content : "EWWWWWWWWWW"
- Pref: "Normal"
- 
+ pref: "Normal"
+
   # TODO(user): Add fields here
