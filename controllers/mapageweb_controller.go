@@ -74,11 +74,11 @@ func (r *MaPageWebReconciler) SetupWithManager(mgr ctrl.Manager) error {
 
 func (r *MaPageWebReconciler) Deploy(ctx context.Context, MaPageWeb *v1.MaPageWeb) error {
 
-  data =: map[string]string{
+  data := map[string]string{
 	"index.html": "<html><body><h1> "+ MaPageWeb.Spec.Contenu + " </h1></body></html>",
   } 
 
-  configMap :=&corev1.ConfigMap {
+  configMap := &corev1.ConfigMap {
      ObjectMeta: metav1.ObjectMeta{
      Name: MaPageWeb.Name + "-config",
 	 },
