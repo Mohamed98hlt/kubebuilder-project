@@ -129,53 +129,53 @@ func (r *MaPageWebReconciler) Deploy(ctx context.Context, MaPageWeb *v1.MaPageWe
             Selector: &metav1.LabelSelector{
                 MatchLabels: map[string]string{
                     "app": MaPageWeb.Application,
-                },
-            },
+                } ,
+            } ,
             Template: v1.PodTemplateSpec{
                 ObjectMeta: metav1.ObjectMeta{
                     Labels: map[string]string{
                         "app": MaPageWeb.Application ,
-                    },
+                    } ,
                 } ,
                 Spec: v1.PodSpec{
 					containers: v1.Containers{
-					 Name: MaPageWeb.Spec.Application
+					 Name: MaPageWeb.Spec.Application ,
 
-					 Image: MaPageWeb.Spec.Application
+					 Image: MaPageWeb.Spec.Application ,
 
 					 Ports: v1.ContainerPort{
 						ContainerPort : 80
-					 }
+					 } ,
 					 VolumeMounts: v1.VolumeMount{
 
 						Name: MaPageWeb.Name + "-storage"
 						MountPath: "/usr/share/"+ MaPageWeb.Application+"/html"
-					 }
-
+					 } ,
+					}
 				   volumes: v1.Volume{
 
-					Name: MaPageWeb.Name+"-storage"
+					Name: MaPageWeb.Name+"-storage",
 
 					ConfigMap : v1.ConfigMapVolumeSource{
-					Name: MaPageWeb.Application+"-config"
+					Name: MaPageWeb.Application+"-config",
 
 					Items: v1.KeyToPath{
-						Key: "index.html" 
-						Path:"index.html"
-					}
-					}
+						Key: "index.html" ,
+						Path:"index.html",
+					} ,
+					},
 
-				   }
+				   },
 
 				
 
 
-					}
+					} ,
 
 
-				}
+				},
             },
-        },
+        }
     }
 
 
