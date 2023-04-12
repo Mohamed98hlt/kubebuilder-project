@@ -54,7 +54,7 @@ type MaPageWebReconciler struct {
 //
 // For more details, check Reconcile and its Result here:
 // - https://pkg.go.dev/sigs.k8s.io/controller-runtime@v0.14.1/pkg/reconcile
-func (r *MaPageWebReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
+func (r *MaPageWebReconciler) Reconcile(ctx context.Context, req ctrl.Request, MaPageWeb *v1.MaPageWeb) (ctrl.Result, error) {
 	_ = log.FromContext(ctx)
 	
 	// TODO(user): your logic here 
@@ -72,7 +72,7 @@ func (r *MaPageWebReconciler) SetupWithManager(mgr ctrl.Manager) error {
 //https://pkg.go.dev/k8s.io/apimachinery/pkg/apis/meta/v1#ObjectMeta
 //https://pkg.go.dev/k8s.io/api/core/v1#ConfigMap
 
-func (r *MaPageWebReconciler) Deploy(ctx context.Context, MaPageWeb *v1.MaPageWeb) error {
+
 
 	//Data to Store in the ConfigMap (a web content)
   data := map[string]string{
@@ -176,7 +176,7 @@ func (r *MaPageWebReconciler) Deploy(ctx context.Context, MaPageWeb *v1.MaPageWe
 				},
             },
         }
-    }
+    
 
 
 
