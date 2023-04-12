@@ -60,7 +60,7 @@ func (r *MaPageWebReconciler) Reconcile(ctx context.Context, req ctrl.Request, M
 	// TODO(user): your logic here 
    r.deploy()
 	return ctrl.Result{}, nil
-}
+
 
 // SetupWithManager sets up the controller with the Manager.
 
@@ -170,7 +170,7 @@ func (r *MaPageWebReconciler) Reconcile(ctx context.Context, req ctrl.Request, M
 				},
             },
         }
-
+	} 
 		func (r *MaPageWebReconciler) SetupWithManager(mgr ctrl.Manager) error {
 			return ctrl.NewControllerManagedBy(mgr).
 				For(&testv1.MaPageWeb{}).
