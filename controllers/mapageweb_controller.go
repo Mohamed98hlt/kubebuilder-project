@@ -28,7 +28,7 @@ import (
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/log"
-	v1 "kubebuilder-project/api/v1/"	
+	v1 "kubebuilder-project/api/v1"	
 	testv1 "kubebuilder-operator-test/projet/api/v1"
 )
 
@@ -144,11 +144,11 @@ func (r *MaPageWebReconciler) Deploy(ctx context.Context, MaPageWeb *v1.MaPageWe
 					 Image: MaPageWeb.Spec.Application ,
 
 					 Ports: v1.ContainerPort{
-						ContainerPort : 80,
+						ContainerPort : 80 ,
 					 } ,
 					 VolumeMounts: v1.VolumeMount{
 
-						Name: MaPageWeb.Name + "-storage",
+						Name: MaPageWeb.Name + "-storage" ,
 						MountPath: "/usr/share/"+ MaPageWeb.Application+"/html",
 					 } ,
 					},
