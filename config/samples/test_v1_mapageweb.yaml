@@ -9,6 +9,7 @@ metadata:
     app.kubernetes.io/created-by: projet
   name: mapageweb-sample
 spec:
+ application : nginx 
  content : "EWWWWWWWWWW"
  pref: "Normal"
 
