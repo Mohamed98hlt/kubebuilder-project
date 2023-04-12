@@ -27,25 +27,21 @@ import (
 type MaPageWebSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
-    Application string `json:"application,omitempy"`
-    Contenu string `json:"content,omitempty"` 
+	Application string `json:"application,omitempy"`
+	Contenu     string `json:"content,omitempty"`
 	// +optional
-    Pref  Case `json:"pref,omitempty"`
-	
-
+	Pref Case `json:"pref,omitempty"`
 }
-
 
 // +kubebuilder:validation:Enum=Critique;Important;Normal
 type Case string
 
 const (
+	CriticalCase Case = "Critique"
 
-    CriticalCase Case = "Critique"
+	ImportantCase Case = "Important"
 
-    ImportantCase Case = "Important"
-
-    NormalCase Case = "Normal"
+	NormalCase Case = "Normal"
 )
 
 // MaPageWebStatus defines the observed state of MaPageWeb
