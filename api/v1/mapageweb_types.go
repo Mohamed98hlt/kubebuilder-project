@@ -27,10 +27,10 @@ import (
 type MaPageWebSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
-    Application string `json:"application,omitempy`
+    Application string `json:"application,omitempy"`
     Contenu string `json:"content,omitempty"` 
 	// +optional
-    Pref  Case `json:"case,omitempty`
+    Pref  Case `json:"pref,omitempty"`
 	
 
 }
