@@ -96,8 +96,8 @@ func (r *MaPageWebReconciler) Deploy(ctx context.Context, MaPageWeb *v1.MaPageWe
 
         return err
     }
-	Preference =MaPageWeb.Spec.Pref
-	Repliques int32;
+	var Preference =MaPageWeb.Spec.Pref
+	var Repliques int32
 
     switch Preference{
 			
