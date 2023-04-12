@@ -74,10 +74,13 @@ func (r *MaPageWebReconciler) SetupWithManager(mgr ctrl.Manager) error {
 
 func (r *MaPageWebReconciler) Deploy(ctx context.Context, MaPageWeb *v1.MaPageWeb) error {
 
+	//Data to Store in the ConfigMap (a web content)
   data := map[string]string{
 	"index.html": "<html><body><h1> "+ MaPageWeb.Spec.Contenu + " </h1></body></html>",
   } 
 
+
+  //Creating ConfigMap
   configMap := &corev1.ConfigMap {
      ObjectMeta: metav1.ObjectMeta{
      Name: MaPageWeb.Name + "-config",
@@ -85,6 +88,8 @@ func (r *MaPageWebReconciler) Deploy(ctx context.Context, MaPageWeb *v1.MaPageWe
 
   Data: data,
 	}
+
+
 	// Set MyResource instance as the owner and controller of the ConfigMap
   if err := ctrl.SetControllerReference(configMap, r.Scheme); err != nil {
         return err
@@ -129,9 +134,9 @@ func (r *MaPageWebReconciler) Deploy(ctx context.Context, MaPageWeb *v1.MaPageWe
             Template: v1.PodTemplateSpec{
                 ObjectMeta: metav1.ObjectMeta{
                     Labels: map[string]string{
-                        "app": MaPageWeb.Application,
+                        "app": MaPageWeb.Application ,
                     },
-                },
+                } ,
                 Spec: v1.PodSpec{
 					containers: v1.Containers{
 					 Name: MaPageWeb.Spec.Application
