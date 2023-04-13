@@ -109,7 +109,7 @@ func (r *MaPageWebReconciler) Reconcile(ctx context.Context, req ctrl.Request, M
 			Template: corev1.PodTemplateSpec{
 				ObjectMeta: metav1.ObjectMeta{
 					Labels: map[string]string{
-						"app": MaPageWeb.Application,
+						"app": MaPageWeb.Spec.Application,
 					},
 				},
 				Spec: corev1.PodSpec{
