@@ -75,10 +75,6 @@ func (r *MaPageWebReconciler) Reconcile(ctx context.Context, req ctrl.Request, M
 		}, Data: data,
 	}
 
-	// Set MyResource instance as the owner and controller of the ConfigMap
-	if err := ctrl.SetControllerReference(configMap, r.Scheme); err != nil {
-		return err
-	}
 	// Create or update the ConfigMap
 	err := r.Create(ctx, configMap)
 	if err != nil && !errors.IsAlreadyExists(err) {
