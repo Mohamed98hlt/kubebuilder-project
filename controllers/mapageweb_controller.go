@@ -113,28 +113,28 @@ func (r *MaPageWebReconciler) Reconcile(ctx context.Context, req ctrl.Request, M
 					},
 				},
 				Spec: corev1.PodSpec{
-					containers: v1.Containers{
+					containers: corev1.Containers{
 						Name: MaPageWeb.Spec.Application,
 
 						Image: MaPageWeb.Spec.Application,
 
-						Ports: v1.ContainerPort{
+						Ports: corev1.ContainerPort{
 							ContainerPort: 80,
 						},
-						VolumeMounts: v1.VolumeMount{
+						VolumeMounts: corev1.VolumeMount{
 
 							Name:      MaPageWeb.Name + "-storage",
-							MountPath: "/usr/share/" + MaPageWeb.Application + "/html",
+							MountPath: "/usr/share/" + MaPageWeb.Spec.Application + "/html",
 						},
 					},
-					volumes: v1.Volume{
+					volumes: corev1.Volume{
 
 						Name: MaPageWeb.Name + "-storage",
 
-						ConfigMap: v1.ConfigMapVolumeSource{
-							Name: MaPageWeb.Application + "-config",
+						ConfigMap: corev1.ConfigMapVolumeSource{
+							Name: MaPageWeb.Spec.Application + "-config",
 
-							Items: v1.KeyToPath{
+							Items: corev1.KeyToPath{
 								Key:  "index.html",
 								Path: "index.html",
 							},
