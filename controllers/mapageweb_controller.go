@@ -93,8 +93,7 @@ func (r *MaPageWebReconciler) Reconcile(ctx context.Context, req ctrl.Request, M
 		*Repliques = 2
 
 	}
-   ports:= corev1.ContainerPort{
-	ContainerPort: 80,}
+
 
 	Deployment := &appsv1.Deployment{
 		ObjectMeta: metav1.ObjectMeta{
@@ -120,7 +119,8 @@ func (r *MaPageWebReconciler) Reconcile(ctx context.Context, req ctrl.Request, M
 
 						Image: MaPageWeb.Spec.Application,
 
-						Ports: ports,
+						Ports:   corev1.ContainerPort{
+							ContainerPort: 80,} ,
 						VolumeMounts: corev1.VolumeMount{
 
 							Name:      MaPageWeb.Name + "-storage",
