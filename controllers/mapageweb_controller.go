@@ -78,7 +78,7 @@ func (r *MaPageWebReconciler) Reconcile(ctx context.Context, req ctrl.Request, M
 	err := r.Create(ctx, configMap)
 	
 	var Preference = MaPageWeb.Spec.Pref
-	var Repliques *int32
+	var Repliques int32
 
 	switch Preference {
 
@@ -100,7 +100,7 @@ func (r *MaPageWebReconciler) Reconcile(ctx context.Context, req ctrl.Request, M
 		},
 		Spec: appsv1.DeploymentSpec{
 
-			Replicas: Repliques,
+			Replicas: *Repliques,
 			Selector: &metav1.LabelSelector{
 				MatchLabels: map[string]string{
 					"app": MaPageWeb.Application,
