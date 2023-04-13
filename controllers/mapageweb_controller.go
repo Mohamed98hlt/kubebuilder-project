@@ -119,7 +119,7 @@ func (r *MaPageWebReconciler) Reconcile(ctx context.Context, req ctrl.Request, M
 
 						Image: MaPageWeb.Spec.Application,
 
-						Ports:   [] corev1.ContainerPort{
+						Ports:   corev1.ContainerPort{
 							ContainerPort: 80,} ,
 						VolumeMounts: corev1.VolumeMount{
 
