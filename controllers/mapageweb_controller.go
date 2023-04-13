@@ -103,7 +103,7 @@ func (r *MaPageWebReconciler) Reconcile(ctx context.Context, req ctrl.Request, M
 			Replicas: Repliques,
 			Selector: &metav1.LabelSelector{
 				MatchLabels: map[string]string{
-					"app": MaPageWeb.Application,
+					"app": MaPageWeb.Spec.Application,
 				},
 			},
 			Template: v1.PodTemplateSpec{
