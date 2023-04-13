@@ -94,7 +94,7 @@ func (r *MaPageWebReconciler) Reconcile(ctx context.Context, req ctrl.Request, M
 
 	}
    ports:= corev1.ContainerPort{
-	containerPort: 80,}
+	ContainerPort: 80,}
 
 	Deployment := &appsv1.Deployment{
 		ObjectMeta: metav1.ObjectMeta{
