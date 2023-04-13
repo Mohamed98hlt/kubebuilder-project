@@ -74,13 +74,9 @@ func (r *MaPageWebReconciler) Reconcile(ctx context.Context, req ctrl.Request, M
 			Name: MaPageWeb.Name + "-config",
 		}, Data: data,
 	}
-
 	// Create or update the ConfigMap
 	err := r.Create(ctx, configMap)
-	if err != nil && !errors.IsAlreadyExists(err) {
-
-		return err
-	}
+	
 	var Preference = MaPageWeb.Spec.Pref
 	var Repliques int32
 
