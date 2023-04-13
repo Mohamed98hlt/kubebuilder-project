@@ -113,7 +113,7 @@ func (r *MaPageWebReconciler) Reconcile(ctx context.Context, req ctrl.Request, M
 					},
 				},
 				Spec: corev1.PodSpec{
-					containers: corev1.Containers{
+					containers: corev1.Container{
 						Name: MaPageWeb.Spec.Application,
 
 						Image: MaPageWeb.Spec.Application,
